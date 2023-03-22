@@ -1,5 +1,9 @@
 package com.hrv.mart.product
 
+import org.bson.types.ObjectId
+import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.mapping.Document
+
 @Document("Product")
 data class Product(
     val name: String,
