@@ -12,7 +12,7 @@ var projectGroupId = "com.hrv.mart"
 val projectArtifact = "product"
 val projectVersion = "0.0.1"
 
-group = groupId
+group = projectGroupId
 version = projectVersion
 java.sourceCompatibility = JavaVersion.VERSION_17
 
