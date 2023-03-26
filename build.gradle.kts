@@ -8,24 +8,26 @@ plugins {
     `maven-publish`
 }
 
-var projectGroupId = "com.hrv.mart"
-val projectArtifact = "product"
-val projectVersion = "0.0.1"
-
-group = projectGroupId
-version = projectVersion
+group = "com.hrv.mart"
+version = "0.0.1"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
     mavenCentral()
 }
 publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/hrv-mart/product")
+            credentials {
+                username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
+            }
+        }
+    }
     publications {
-        create<MavenPublication>("maven") {
-            groupId = projectGroupId
-            artifactId = projectArtifact
-            version = projectVersion
-
+        register<MavenPublication>("gpr") {
             from(components["java"])
         }
     }
