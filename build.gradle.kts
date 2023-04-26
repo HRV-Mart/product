@@ -6,6 +6,10 @@ plugins {
     kotlin("jvm") version "1.7.22"
     kotlin("plugin.spring") version "1.7.22"
     `maven-publish`
+
+    //jacoco
+    id("io.github.gmazzo.test.aggregation.coverage") version "1.1.0"
+    id("io.github.gmazzo.test.aggregation.results") version "1.1.0"
 }
 
 group = "com.hrv.mart"
