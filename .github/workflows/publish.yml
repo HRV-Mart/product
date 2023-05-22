@@ -15,6 +15,7 @@ on:
 env:
   USERNAME: ${{ secrets.OSSRH_USERNAME }}
   TOKEN: ${{ secrets.OSSRH_TOKEN }}
+  PRODUCT_URL: ${{secrets.PRODUCT_URL}}
 jobs:
   publish:
     runs-on: ubuntu-latest
