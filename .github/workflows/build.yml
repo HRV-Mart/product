@@ -8,7 +8,10 @@ on:
   push:
     branches:
       - 'master'
-
+env:
+  USERNAME: ${{ secrets.OSSRH_USERNAME }}
+  TOKEN: ${{ secrets.OSSRH_TOKEN }}
+  PRODUCT_URL: http://localhost:8081/product
 jobs:
   build:
     name: Build

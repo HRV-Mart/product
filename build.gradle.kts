@@ -9,11 +9,19 @@ plugins {
 }
 
 group = "com.hrv.mart"
-version = "0.0.1"
+version = "0.0.3"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
     mavenCentral()
+    maven {
+        name = "GitHubPackages"
+        url = uri("https://maven.pkg.github.com/hrv-mart/custom-pageable")
+        credentials {
+            username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+            password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
+        }
+    }
 }
 publishing {
     repositories {
@@ -41,6 +49,8 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
+
+    implementation("com.hrv.mart:api-call:0.0.1")
 }
 
 tasks.withType<KotlinCompile> {
