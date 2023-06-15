@@ -21,4 +21,13 @@ class ProductRepository (
     fun getCostOfProductByProductId(productId: String) =
         getProductByProductId(productId)
             .map { it.price }
+    fun createProduct(product: Product) =
+        APICaller(webClientBuilder)
+            .postRequest(productURL, String::class.java, product)
+    fun updateProduct(product: Product) =
+        APICaller(webClientBuilder)
+            .putRequest(productURL, String::class.java, product)
+    fun deleteProduct(productId: String) =
+        APICaller(webClientBuilder)
+            .deleteData("${productURL}/${productId}", String::class.java)
 }
