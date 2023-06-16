@@ -12,6 +12,7 @@ env:
   USERNAME: ${{ secrets.OSSRH_USERNAME }}
   TOKEN: ${{ secrets.OSSRH_TOKEN }}
   PRODUCT_URL: http://localhost:8081/product
+  VERSION: 0.0.1-SNAPSHOT
 jobs:
   build:
     name: Build
