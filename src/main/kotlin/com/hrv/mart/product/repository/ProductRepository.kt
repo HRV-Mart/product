@@ -4,6 +4,7 @@ import com.hrv.mart.apicall.APICaller
 import com.hrv.mart.product.Product
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
+import org.springframework.http.server.reactive.ServerHttpResponse
 import org.springframework.stereotype.Repository
 import org.springframework.web.reactive.function.client.WebClient
 
@@ -15,19 +16,23 @@ class ProductRepository (
     private val productURL: String
 )
 {
-    fun getProductByProductId(productId: String) =
+    fun getProductByProductId(productId: String, response: ServerHttpResponse?) =
         APICaller(webClientBuilder)
-            .getData("${productURL}/${productId}", Product::class.java)
-    fun getCostOfProductByProductId(productId: String) =
-        getProductByProductId(productId)
+            .getData(
+                "${productURL}/${productId}",
+                Product::class.java,
+                response
+            )
+    fun getCostOfProductByProductId(productId: String, response: ServerHttpResponse? = null) =
+        getProductByProductId(productId, response)
             .map { it.price }
-    fun createProduct(product: Product) =
+    fun createProduct(product: Product, response: ServerHttpResponse) =
         APICaller(webClientBuilder)
-            .postRequest(productURL, String::class.java, product)
-    fun updateProduct(product: Product) =
+            .postRequest(productURL, String::class.java, product, response)
+    fun updateProduct(product: Product, response: ServerHttpResponse) =
         APICaller(webClientBuilder)
-            .putRequest(productURL, String::class.java, product)
-    fun deleteProduct(productId: String) =
+            .putRequest(productURL, String::class.java, product, response)
+    fun deleteProduct(productId: String, response: ServerHttpResponse) =
         APICaller(webClientBuilder)
-            .deleteData("${productURL}/${productId}", String::class.java)
+            .deleteData("${productURL}/${productId}", String::class.java, response)
 }
