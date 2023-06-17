@@ -50,7 +50,7 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
 
-    implementation("com.hrv.mart:api-call:0.0.2")
+    implementation("com.hrv.mart:api-call:0.0.3-beta")
 }
 
 tasks.withType<KotlinCompile> {
