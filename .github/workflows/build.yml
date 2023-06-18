@@ -2,12 +2,14 @@
 name: Build Flow
 
 on:
-  pull_request_target:
+  pull_request:
     branches:
       - '*'
   push:
     branches:
       - 'master'
+
+permissions: read-all|write-all
 env:
   USERNAME: ${{ secrets.OSSRH_USERNAME }}
   TOKEN: ${{ secrets.OSSRH_TOKEN }}
