@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.springframework.boot") version "3.0.4"
+    id("org.springframework.boot") version "3.1.0"
     id("io.spring.dependency-management") version "1.1.0"
     kotlin("jvm") version "1.8.22"
     kotlin("plugin.spring") version "1.7.22"
@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "com.hrv.mart"
-version = System.getenv("USERNAME")
+version = System.getenv("VERSION")
 java.sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
@@ -50,7 +50,7 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
 
-    implementation("com.hrv.mart:api-call:0.0.2")
+    implementation("com.hrv.mart:api-call:0.0.3")
 }
 
 tasks.withType<KotlinCompile> {
