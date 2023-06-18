@@ -9,7 +9,7 @@ on:
     branches:
       - 'master'
 
-permissions: write-all
+permissions: read-all
 env:
   USERNAME: ${{ secrets.OSSRH_USERNAME }}
   TOKEN: ${{ secrets.OSSRH_TOKEN }}
