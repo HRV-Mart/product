@@ -2,7 +2,7 @@
 [![Build Flow](https://github.com/HRV-Mart/product/actions/workflows/build.yml/badge.svg)](https://github.com/HRV-Mart/product/actions/workflows/build.yml)
 ![GitHub Release Date - Published_At](https://img.shields.io/github/release-date/HRV-Mart/product)
 
-A API-Call package created for HRV-Mart to help Spring boot application to call API.
+A prodcut package created for HRV-Mart to help Spring boot application to call interact with [Backend-Product](github.com/HRV-Mart/Backend-Product).
 ## How to use
 1) Define dependency in build.gradle/build.gradle.kts/pom.xml
    Use [this link](https://github.com/orgs/HRV-Mart/packages?repo_name=product) to pick appropriate version.
