@@ -1,4 +1,4 @@
-package com.hrv.mart.product
+package com.hrv.mart.product.model
 
 import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id

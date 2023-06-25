@@ -1,7 +1,9 @@
 package com.hrv.mart.product.repository
 
 import com.hrv.mart.apicall.APICaller
-import com.hrv.mart.product.Product
+import com.hrv.mart.custompageable.Pageable
+import com.hrv.mart.product.model.Product
+import com.hrv.mart.product.model.QueryParams
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.server.reactive.ServerHttpResponse
@@ -16,6 +18,16 @@ class ProductRepository (
     private val productURL: String
 )
 {
+    fun getAllProduct(response: ServerHttpResponse?, queryParams: QueryParams) =
+            APICaller(webClientBuilder)
+                    .getData(
+                        productURL+queryParams.getQueryParamForURL(),
+                        Pageable::class.java,
+                        response
+                    )
+                    .map {
+                        it as Pageable<Product>
+                    }
     fun getProductByProductId(productId: String, response: ServerHttpResponse?) =
         APICaller(webClientBuilder)
             .getData(
