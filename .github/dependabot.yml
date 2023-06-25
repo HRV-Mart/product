@@ -4,7 +4,8 @@
 # https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
 
 version: 2
-registries:maven-github:
+registries:
+  maven-github:
     type: maven-repository
     url: https://maven.pkg.github.com/hrv-mart
     username: ${{secrets.OSSRH_USERNAME}}
