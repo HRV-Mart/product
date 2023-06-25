@@ -6,7 +6,7 @@
 version: 2
 registries:
   maven-github:
-    type: maven-registry
+    type: maven-repository
     url: https://maven.pkg.github.com
     token: ${{secrets.OSSRH_TOKEN}}
 updates:
