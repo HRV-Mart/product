@@ -51,6 +51,7 @@ dependencies {
     testImplementation("io.projectreactor:reactor-test")
 
     implementation("com.hrv.mart:api-call:0.0.3")
+    implementation("com.hrv.mart:custom-pageable:0.0.1-SNAPSHOT")
 }
 
 tasks.withType<KotlinCompile> {
