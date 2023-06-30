@@ -14,7 +14,7 @@ plugins {
 group = "com.hrv.mart"
 version = System.getenv("VERSION")
 java.sourceCompatibility = JavaVersion.VERSION_17
-d d
+
 repositories {
     mavenCentral()
     maven {
