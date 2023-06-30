@@ -6,6 +6,9 @@ plugins {
     kotlin("jvm") version "1.8.22"
     kotlin("plugin.spring") version "1.8.22"
     `maven-publish`
+    // Detekt and Jacoco
+    id("io.gitlab.arturbosch.detekt").version("1.22.0") // This is to add detekt
+    id("jacoco")// This is to use Jacoco for coverage testing
 }
 
 group = "com.hrv.mart"
@@ -49,11 +52,16 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
-
+    // Detekt
+    detektPlugins ("io.gitlab.arturbosch.detekt:detekt-formatting:1.22.0")
+    // HRV-Mart dependency
     implementation("com.hrv.mart:api-call:0.0.3")
     implementation("com.hrv.mart:custom-pageable:0.0.2")
 }
-
+detekt {
+    toolVersion = "1.22.0"
+    config = files("config/detekt/detekt.yml")
+}
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
@@ -63,4 +71,30 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+    // To run Jacoco Test Coverage Verification
+    finalizedBy("jacocoTestCoverageVerification")
+}
+tasks.jacocoTestCoverageVerification {
+    violationRules {
+//        rule {
+//            excludes = listOf(
+//                "com.hrv.mart.product.repository.ProductRepository.kt"
+//            )
+//            limit {
+//                minimum = "0.9".toBigDecimal()
+//            }
+//        }
+    }
+}
+tasks.jacocoTestReport{
+    reports {
+        html.required.set(true)
+        generate()
+    }
+}
+tasks.withType<KotlinCompile> {
+    kotlinOptions {
+        freeCompilerArgs = listOf("-Xjsr305=strict")
+        jvmTarget = "17"
+    }
 }
