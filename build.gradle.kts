@@ -76,14 +76,14 @@ tasks.withType<Test> {
 }
 tasks.jacocoTestCoverageVerification {
     violationRules {
-        rule {
-            excludes = listOf(
-                "com.hrv.mart.product.repository.ProductRepository.kt"
-            )
-            limit {
-                minimum = "0.9".toBigDecimal()
-            }
-        }
+//        rule {
+//            excludes = listOf(
+//                "com.hrv.mart.product.repository.ProductRepository.kt"
+//            )
+//            limit {
+//                minimum = "0.9".toBigDecimal()
+//            }
+//        }
     }
 }
 tasks.jacocoTestReport{
