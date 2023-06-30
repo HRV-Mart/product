@@ -1,9 +1,9 @@
 package com.hrv.mart.product.repository
 
 import com.hrv.mart.apicall.APICaller
-import com.hrv.mart.custompageable.Pageable
+import com.hrv.mart.custompageable.model.Pageable
+import com.hrv.mart.custompageable.model.QueryParams
 import com.hrv.mart.product.model.Product
-import com.hrv.mart.product.model.QueryParams
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.server.reactive.ServerHttpResponse
