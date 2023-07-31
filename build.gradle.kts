@@ -59,7 +59,7 @@ dependencies {
     implementation("com.hrv.mart:custom-pageable:0.0.2")
 }
 detekt {
-    toolVersion = "1.22.0"
+    toolVersion = "1.23.1"
     config = files("config/detekt/detekt.yml")
 }
 tasks.withType<KotlinCompile> {
