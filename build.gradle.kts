@@ -7,7 +7,7 @@ plugins {
     kotlin("plugin.spring") version "1.8.22"
     `maven-publish`
     // Detekt and Jacoco
-    id("io.gitlab.arturbosch.detekt").version("1.22.0") // This is to add detekt
+    id("io.gitlab.arturbosch.detekt").version("1.23.1") // This is to add detekt
     id("jacoco")// This is to use Jacoco for coverage testing
 }
 
