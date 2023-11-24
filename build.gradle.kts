@@ -4,7 +4,7 @@ plugins {
     id("org.springframework.boot") version "3.1.2"
     id("io.spring.dependency-management") version "1.1.3"
     kotlin("jvm") version "1.9.0"
-    kotlin("plugin.spring") version "1.9.0"
+    kotlin("plugin.spring") version "1.9.21"
     `maven-publish`
     // Detekt and Jacoco
     id("io.gitlab.arturbosch.detekt").version("1.23.1") // This is to add detekt
